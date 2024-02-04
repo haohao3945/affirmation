@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记得好好照顾自己</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-hHjp+zaeIo06lGf1b2iAK1sKXcL4dIszV8Sk9+FvcL7Vm8m+qUtIY2r+ZfcHrIyWlxvOBSJ4ge9BJD8TOwnrwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Preload images -->
+    <link rel="preload" href="safety0.jpg" as="image">
+    <link rel="preload" href="affirmation1.jpg" as="image">
+    <link rel="preload" href="affirmation2.jpg" as="image">
+    <link rel="preload" href="affirmation3.jpg" as="image">
+    <link rel="preload" href="affirmation4.jpg" as="image">
+    <link rel="preload" href="affirmation5.jpg" as="image">
+    <link rel="preload" href="affirmation6.jpg" as="image">
+    <link rel="preload" href="affirmation7.jpg" as="image">
+    <link rel="preload" href="affirmation8.jpg" as="image">
+    <link rel="preload" href="affirmation9.jpg" as="image">
+    <link rel="preload" href="affirmation10.jpg" as="image">
+    <link rel="preload" href="affirmation11.jpg" as="image">
+    <link rel="preload" href="affirmation12.jpg" as="image">
+    <link rel="preload" href="affirmation13.jpg" as="image">
+    <link rel="preload" href="affirmation14.jpg" as="image">
+    <link rel="preload" href="affirmation15.jpg" as="image">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            text-align: center;
+            font-family: Heiti;
+            color: #333;
+            margin: 0 50px;
+			height:100%
+			font-size:18px;
+			min-height:2000px;
+        }
+
+        #affirmation-container {
+            max-width: 500px;
+            margin: 0 auto;
+			min-height:2000px;
+            background-color: #fff;
+			height:100%;
+            padding: 0px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Hide overflow for slider effect */
+        }
+		@media (max-width:499px){
+			body{margin:0;}
+			#affirmation-container{width:100%;}
+		}
+		
+        .navbar {
+            color: #191970;
+			width:100%;
+            font-size: 30px;
+            margin: 0;
+			background:#E6E6FA;
+			padding:20px 0;
+			text-align:center;
+			justify-content:center;
+			line-height:1.3;
+			display:block;
+        }
+		
+		.container{
+			padding:30px;
+		}
+		
+        p {
+            font-size: 16px;
+			color:#696969;
+        }
+		
+		img{
+			width:100%;
+			margin-bottom:50px;
+		}
+		
+		#final-container img{
+			width:50%;
+			margin-bottom:50px;
+		}
+        #affirmation-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        #affirmation-text {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        #question-container {
+            margin-bottom: 20px;
+        }
+
+        #question-text {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        #user-answer {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        #confirm-button, #answer-button,#reference-button,#feedback-button {
+            font-size: 16px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+			margin:0 auto;
+        }
+
+        #navigation button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+
+        #navigation button:hover {
+            color: #2980b9;
+        }
+
+        /* Your existing feedback section remains unchanged */
+		#feedback{
+			display:none;
+		}
+
+        /* Additional style for the textarea */
+        #feedback-textarea {
+            display: none;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+		
+		/* margin and padding*/
+		.mt-20{
+			margin-top:20px !important
+		}
+		.mb-20{
+			margin-bottom:20px !important
+		}
+		.pt-20{
+			padding-top:20px !important
+		}
+		.pb-20{
+			padding-bottom:20px !important
+		}
+		.text-center{
+			text-align:center;
+			justify-content:center;
+		}
+				
+		#music-widget{
+			background-color: #f4f4f4;
+			right: 20px;
+			bottom: 20px;
+			width: 70px;
+			height: 70px;
+			z-index: 9999;
+			position: -webkit-fixed;
+			position: fixed;
+			padding: 7px;
+			border-radius: 50%;
+			box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+
+		}
+		#music-widget:hover{
+			cursor:pointer;
+		}
+		.music-note{
+			margin-top:10px;
+		}
+		#volumeControl{
+			position: relative;
+			margin-top: -53px;
+			margin-bottom: -1px;
+			margin-left: -7px;
+			width: 79px;
+		}
+    </style>
+</head>
+
+<body>
+    <div id="affirmation-container">
+        <h1 class="navbar"><strong>改变思维方式</strong><br>自我肯定</h1>
+		<div class="container">
+			<img id="affirmation-image" src="safety0.jpg" alt="Affirmation Image">
+			<p id="affirmation-text" class="text-center">Loading...</p>
+
+	 
+			<div id="final-container text-center" style="display:none;">
+				<p> 好了，你已经完成了，喜欢这样的方式，可以点击以下按钮去到feedback form 告诉我，我就会出更多这样的系列。喜欢这个app 的话，可以把app 存在手机里，下面有教程！</p>
+				<button id="feedback-button" onclick="displayAddHome()" style="display:none;margin-top:10px;">填写Feedback,或者把APP加到手机</button>
+			</div>
+			 <div class="section" id="final-container" style=" display:none;" >
+				<h4>恭喜你已经完成了</h4>
+				<div class="container">
+					<div class="row" style="margin-bottom: 30px;">
+						
+						<div class="column">
+							<h5>想要保存这个APP？</h5>
+							<p>可以在手机浏览器中打开，然后选择“添加到主屏幕”以创建应用的快捷方式。下面图片/视频教你！</p>
+
+							<div>
+								<p>第一步：在手机打开APP</p>
+								<img src="step1.jpeg" width="300px" height="auto" alt="step1">
+								<p>第二步：选择添加到主页</p>
+								<img src="step2.jpeg" width="300px" height="auto"  alt="step2">
+								<p>第三步：重新命名</p>
+								<img src="step3.jpeg" width="300px" height="auto"  alt="step3">
+								<p>第四步：你在手机找到啦</p>
+								<img src="step4.jpeg" width="300px" height="auto"  alt="step4">
+							</div>
+							<p>视频教程：</p>
+							<div class="video-container">
+								<iframe src="https://www.youtube.com/embed/dTFaSVUlmA4?si=haZAEGNuYLF5ZXxc" frameborder="0" style="width: 100%; min-height: 400px;" allowfullscreen></iframe>
+							</div>
+						</div>
+						<div class="column" style="margin-top:50px;">
+							<p>觉得我们有更多进步的地方？或者想要更多的系列？给我们一点意见吧·</p>
+							<form action="https://script.google.com/macros/s/AKfycbxHQefQKgU5bVNMaDdbp_oP8mge0U2UAcvx2Y9M0c8kOJxpuCfJUbimgESUCeKJrZ2blg/exec" method="POST">
+								<label for="feedback" style="margin-bottom:30px;">提供反馈：</label>
+								<textarea id="moreDetails" name="details" class="form-control" id="feedback" rows="5" style="width: 100%;"></textarea>
+								<button type="submit" style="margin-top: 10px; padding: 10px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;">提交反馈</button>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div id="navigation">
+				<button class="arrow-left" style="font-size:15px;" onclick="prevAffirmation()">&larr;上一页</button>
+				<button class="arrow-right" style="font-size:15px;" onclick="nextAffirmation()">下一页&rarr;</button>
+			</div>
+		</div>
+		
+		<div id="music-widget">
+			<div id="volumeControl" style="display:none;">
+				<label style="font-size:10px;">调整音量</label>
+				<input id="volumeControlBar" type="range"  min="0" max="1" step="0.01" value="0.5"  style="width:60px;">
+			</div>
+			<div id="music-widget-button">
+				<span class="music-note">&#127925;</span>
+				<p style="font-size:10px !important;">点击播放/<br/>暂停音乐</p>
+			</div>
+		</div>
+		
+		
+
+		<audio id="music" src="music.weba" loop></audio>
+		<script>
+		  const music = document.getElementById('music');
+		  const playButton = document.getElementById('music-widget-button');
+		  const volumeControlBar = document.getElementById('volumeControlBar');
+		  const volumeControl = document.getElementById('volumeControl');
+
+
+		  // Automatically pause the music when the page loads
+		  window.addEventListener('load', () => {
+			music.pause();
+		  });
+
+		  // Function to play or pause the music and update button text accordingly
+		  function togglePlay() {
+			if (music.paused) {
+			  playMusic();
+			} else {
+			  pauseMusic();
+			}
+		  }
+
+		  // Function to play the music
+		  function playMusic() {
+			music.play();
+			volumeControl.style.display="block";
+		  }
+
+		  // Function to pause the music
+		  function pauseMusic() {
+			music.pause();
+			volumeControl.style.display="none";
+		  }
+
+		  // Event listener for the play button
+		  playButton.addEventListener('click', togglePlay);
+
+		  // Event listener for volume control
+		  volumeControl.addEventListener('input', () => {
+			music.volume = volumeControlBar.value;
+		  });
+		</script>
+    </div>
+
+    <!-- Your existing feedback section remains unchanged -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+		var firsttime = true;
+		function remove(){
+			if (firsttime ===true){
+				affirmations.shift();
+				currentAffirmationIndex = currentAffirmationIndex - 1;
+				firsttime = false;
+				document.getElementById("affirmation-text").style.textAlign = "left";
+
+
+			}	
+		}	
+		
+        var affirmations = [
+            { text: " 自我肯定是通过不断给自己灌输\n可以改变生活的人生观，\n 避免自己被自卑，原生家庭教育的影响。\n\n点击 '下一页'开始", image: "safety0.jpg", defaultAnswer: "" },
+		  {
+			"text": "1. 我值得被爱和尊重.所以我将以照顾自己为主.自己好了才有精力照顾别人",
+			"image": "affirmation1.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "你可以问任意一个守门人，'如果我问另一个守门人，他会告诉我哪扇门通往安全之地吗？' 如果他说是，那么选择他所指的门；如果他说不是，那么选择另一扇门。"
+		  },
+		  {
+			"text": "2. 我是有价值的，只要活着。不信？给自己七天，设闹铃每个小时写下你所做的事情。然后问大脑，为什么这是好的。大脑会给你答案。七天后，你会发现，虽然不是每个小时，但是你也能做出有价值的事情",
+			"image": "affirmation2.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "你可以问他，'如果我问你是不是总是说谎话，你会说是吗？' 如果他说是，那么他是总是说真话的类型；如果他说不是，那么他是总是说谎话的类型。"
+		  },
+		  {
+			"text": "3. 我有机会慢慢成长",
+			"image": "affirmation3.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "你可以问任意一个人，'如果我问另外两个人，哪一个是说真话的？' 然后选择不同于他回答的那个人。"
+		  },
+		  {
+			"text": "4. 我的价值不由外在决定 所以我会忽略所有评价 专注自我成长和提共价值",
+			"image": "affirmation4.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "打开一个开关待一会，然后关闭它。接着打开另一个开关，然后走进房间。观察灯的状态：如果灯亮着，说明这是第一个开关控制的；如果灯熄灭，摸一下灯泡：如果是热的，说明这是第二个开关控制的；如果是冷的，说明这是第三个开关控制的。"
+		  },
+		  {
+			"text": "5.我配得上美好的东西",
+			"image": "affirmation5.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "小明喝橙汁，小红喝苹果汁，小杰喝葡萄汁，小花喝橙汁。"
+		  },
+		  {
+			"text": "6. 我有能力度过所有的挑战",
+			"image": "affirmation6.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "红色房子-英国人-混合香烟-鸟-茶；蓝色房子-挪威人- Dunhill 香烟-猫-水；黄色房子-丹麦人-Bluemaster 香烟-马-啤酒；绿色房子-德国人-Prince 香烟-鱼-咖啡；白色房子-瑞典人- Pall Mall 香烟-狗-牛奶。"
+		  },
+		  {
+			"text": "7.我能控制我的思想 并选择积极和有创造力的一面",
+			"image": "affirmation7.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "红色房子-英国人-混合香烟-鸟-茶；蓝色房子-挪威人- Dunhill 香烟-猫-水；黄色房子-丹麦人-Bluemaster 香烟-马-啤酒；绿色房子-德国人-Prince 香烟-鱼-咖啡；白色房子-瑞典人- Pall Mall 香烟-狗-牛奶。"
+		  },
+		  {
+			"text": "8.我有能力实现我的目标，我勇敢接受一切，执行一切，就算犯错，也是我靠近我目标的一步",
+			"image": "affirmation8.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "红色房子-英国人-混合香烟-鸟-茶；蓝色房子-挪威人- Dunhill 香烟-猫-水；黄色房子-丹麦人-Bluemaster 香烟-马-啤酒；绿色房子-德国人-Prince 香烟-鱼-咖啡；白色房子-瑞典人- Pall Mall 香烟-狗-牛奶。"
+		  },
+		  {
+			"text": "9.我选择对他人友善",
+			"image": "affirmation9.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "红色房子-英国人-混合香烟-鸟-茶；蓝色房子-挪威人- Dunhill 香烟-猫-水；黄色房子-丹麦人-Bluemaster 香烟-马-啤酒；绿色房子-德国人-Prince 香烟-鱼-咖啡；白色房子-瑞典人- Pall Mall 香烟-狗-牛奶。"
+		  },
+		  {
+			"text": "10.我值得自己的认可，并且值得自己爱自己",
+			"image": "affirmation10.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "红色房子-英国人-混合香烟-鸟-茶；蓝色房子-挪威人- Dunhill 香烟-猫-水；黄色房子-丹麦人-Bluemaster 香烟-马-啤酒；绿色房子-德国人-Prince 香烟-鱼-咖啡；白色房子-瑞典人- Pall Mall 香烟-狗-牛奶。"
+		  },
+		  {
+			"text": "11.我有能量也有能力，任何别人的敷衍，贬低都不能否定我的价值。犯错只是我学习的机会",
+			"image": "affirmation11.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "红色房子-英国人-混合香烟-鸟-茶；蓝色房子-挪威人- Dunhill 香烟-猫-水；黄色房子-丹麦人-Bluemaster 香烟-马-啤酒；绿色房子-德国人-Prince 香烟-鱼-咖啡；白色房子-瑞典人- Pall Mall 香烟-狗-牛奶。"
+		  },
+		  {
+			"text": "12.我允许犯错，因为犯错是成长的一部分。别人的责备对我来说没影响",
+			"image": "affirmation12.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "红色房子-英国人-混合香烟-鸟-茶；蓝色房子-挪威人- Dunhill 香烟-猫-水；黄色房子-丹麦人-Bluemaster 香烟-马-啤酒；绿色房子-德国人-Prince 香烟-鱼-咖啡；白色房子-瑞典人- Pall Mall 香烟-狗-牛奶。"
+		  },
+		  {
+			"text": "13.我接受自己的独特，不怕与众不同，也放弃任何的比较，专注自己的路",
+			"image": "affirmation13.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "红色房子-英国人-混合香烟-鸟-茶；蓝色房子-挪威人- Dunhill 香烟-猫-水；黄色房子-丹麦人-Bluemaster 香烟-马-啤酒；绿色房子-德国人-Prince 香烟-鱼-咖啡；白色房子-瑞典人- Pall Mall 香烟-狗-牛奶。"
+		  },
+		  {
+			"text": "14.我有能力爱别人，也有能力，也值得接受别人的爱",
+			"image": "affirmation14.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "红色房子-英国人-混合香烟-鸟-茶；蓝色房子-挪威人- Dunhill 香烟-猫-水；黄色房子-丹麦人-Bluemaster 香烟-马-啤酒；绿色房子-德国人-Prince 香烟-鱼-咖啡；白色房子-瑞典人- Pall Mall 香烟-狗-牛奶。"
+		  },
+		  {
+			"text": "15.我的不完美就是我的独特性，所以别人说我不完美，不代表我没有价值，因为我能找到自己的价值。",
+			"image": "affirmation15.jpg",
+			"defaultAnswer": "未回答",
+			"referenceAnswer": "红色房子-英国人-混合香烟-鸟-茶；蓝色房子-挪威人- Dunhill 香烟-猫-水；黄色房子-丹麦人-Bluemaster 香烟-马-啤酒；绿色房子-德国人-Prince 香烟-鱼-咖啡；白色房子-瑞典人- Pall Mall 香烟-狗-牛奶。"
+		  },
+            { text: "", image: "safety0.jpg", defaultAnswer: "" },
+
+ // Add more affirmations as needed
+        ];
+
+        var currentAffirmationIndex = 0;
+
+		function showAffirmation(index) {
+			var affirmation = affirmations[index];
+			document.getElementById('affirmation-text').innerHTML = affirmation.text.replace(/\n/g, '<br>');
+			document.getElementById('affirmation-image').src = affirmation.image;
+
+		}
+
+
+		
+        function nextAffirmation() {
+            currentAffirmationIndex = (currentAffirmationIndex + 1) % affirmations.length;
+            showAffirmation(currentAffirmationIndex);
+			remove();
+			
+			checklast();
+        }
+
+        function prevAffirmation() {
+            currentAffirmationIndex = (currentAffirmationIndex - 1 + affirmations.length) % affirmations.length;
+            showAffirmation(currentAffirmationIndex);
+
+			remove();
+			checklast();
+        }
+		
+
+		function checklast(){
+			console.log(currentAffirmationIndex);
+			console.log(affirmations.length-1);
+			if (currentAffirmationIndex === affirmations.length-1){
+				console.log("i am run")
+				document.getElementById('final-container').style.display="block";
+
+				
+			}else{
+
+				document.getElementById('final-container').style.display="none";			
+			}
+		}
+		
+		function displayAddHome(){
+			document.getElementById('feedback').style.display="block";
+			// Fetch the URL
+			fetch('https://script.google.com/macros/s/AKfycbxMdAmgo9_wsiUIU23pRZpeYuHqd50RdKukED3w1Q_fRmyuGrqQBEcavc-WxI-7PQQg8A/exec?cta=11')
+				.then(response => response.json()
+				
+				)
+				.then(data => {
+					// Handle the data as needed
+					console.log(data);
+				})
+				.catch(error => {
+					// Handle errors
+					console.error('Error fetching data:', error);
+				});
+		}
+        // Initial display
+        showAffirmation(currentAffirmationIndex);
+		
+	// track view 
+	window.onload = function() {
+	console.log("hi")
+	// Fetch the URL
+    fetch('https://script.google.com/macros/s/AKfycbxMdAmgo9_wsiUIU23pRZpeYuHqd50RdKukED3w1Q_fRmyuGrqQBEcavc-WxI-7PQQg8A/exec?view=15')
+        .then(response => response.json()
+		
+		)
+        .then(data => {
+            // Handle the data as needed
+            console.log(data);
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('Error fetching data:', error);
+        });
+	//	addAppToHomeScreen()
+	
+	};
+
+	setTimeout(function () {
+		fetch('https://script.google.com/macros/s/AKfycbxMdAmgo9_wsiUIU23pRZpeYuHqd50RdKukED3w1Q_fRmyuGrqQBEcavc-WxI-7PQQg8A/exec?home=15')
+		.then(response => response.json())
+		.then(data => {
+			console.log(data);
+		})
+		.catch(error => {
+			console.error('Error fetching data:', error);
+		});
+
+      }, 30000);
+	  
+    </script>
+</body>
+
+</html>
